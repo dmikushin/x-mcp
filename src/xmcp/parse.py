@@ -6,6 +6,7 @@ authoritative reference for the markup Nitter emits.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from urllib.parse import parse_qs, unquote, urljoin, urlparse
@@ -374,6 +375,15 @@ def parse_timeline(html: str, base_url: str) -> Timeline:
     soup = BeautifulSoup(html, "lxml")
     tweets = [t for item in soup.select(".timeline-item") if (t := parse_tweet(item, base_url))]
     return Timeline(tweets=tweets, next_cursor=_next_cursor(soup, base_url))
+
+
+_TITLE_RE = re.compile(r"<title>([^<]*)</title>", re.IGNORECASE)
+
+
+def page_title(html: str) -> str:
+    """Raw page title; cheap enough to classify interstitials without a DOM."""
+    match = _TITLE_RE.search(html)
+    return match.group(1).strip() if match else ""
 
 
 def is_empty_timeline(html: str) -> bool:

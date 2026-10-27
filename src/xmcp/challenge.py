@@ -69,8 +69,10 @@ class AnubisChallenge:
                     f"nonce search exhausted at difficulty {self.difficulty}"
                 )
 
-    def pass_challenge_url(self, redir: str, elapsed_ms: int) -> str:
+    def pass_challenge_url(self, redir: str) -> str:
+        started = time.monotonic()
         nonce, digest = self.solve()
+        elapsed_ms = int((time.monotonic() - started) * 1000)
         # Anubis's own JS concatenates the base prefix with the endpoint path;
         # urljoin would drop a non-empty prefix path, so concatenate directly.
         base = self.base_prefix.rstrip("/") + PASS_CHALLENGE_PATH
@@ -120,7 +122,7 @@ def detect_challenge(html: str) -> AnubisChallenge | None:
 
 def is_anubis_page(html: str) -> bool:
     """Cheap check: does this HTML look like an Anubis challenge page?"""
-    return "anubis_challenge" in html or "Making sure you're not a bot" in html
+    return 'id="anubis_challenge"' in html
 
 
 def solve_and_pass(
@@ -133,12 +135,10 @@ def solve_and_pass(
     Uses the same client (cookie jar + headers), so the auth cookies Anubis
     sets are carried into the retry.
     """
-    started = time.monotonic()
     challenge = detect_challenge(challenge_page.text)
     if challenge is None:
         raise UnsupportedChallenge("page looks like a challenge but has no JSON payload")
-    elapsed_ms = int((time.monotonic() - started) * 1000)
-    url = challenge.pass_challenge_url(original_path, elapsed_ms)
+    url = challenge.pass_challenge_url(original_path)
     # An empty base_prefix means the endpoint lives on the same host, so
     # resolve the relative path against the challenge page URL.
     if url.startswith("/"):

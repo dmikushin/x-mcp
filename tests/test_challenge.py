@@ -72,12 +72,14 @@ def test_pass_challenge_url_is_exact():
         base_prefix="",
     )
     nonce, digest = challenge.solve()
-    url = challenge.pass_challenge_url("/NASA", 123)
-    assert url == (
+    url = challenge.pass_challenge_url("/NASA")
+    prefix, elapsed = url.rsplit("&elapsedTime=", 1)
+    assert prefix == (
         "/.within.website/x/cmd/anubis/api/pass-challenge"
         f"?id=01a17f2c-2c4b-7e6a-b2fa-303fa303f709"
-        f"&response={digest}&nonce={nonce}&redir=%2FNASA&elapsedTime=123"
+        f"&response={digest}&nonce={nonce}&redir=%2FNASA"
     )
+    assert elapsed.isdigit()
     assert digest.startswith("0")
 
 
@@ -89,11 +91,11 @@ def test_base_prefix_is_honoured():
         random_data="abc",
         base_prefix="https://mirror.example.com/anubis",
     )
-    url = challenge.pass_challenge_url("/foo", 42)
+    url = challenge.pass_challenge_url("/foo")
     assert url.startswith(
         "https://mirror.example.com/anubis/.within.website/x/cmd/anubis/api/pass-challenge"
     )
-    assert url.endswith("&redir=%2Ffoo&elapsedTime=42")
+    assert "&redir=%2Ffoo&elapsedTime=" in url
 
 
 def test_gandalf_page_is_not_anubis():

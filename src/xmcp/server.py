@@ -16,7 +16,7 @@ from mcp.types import ImageContent, TextContent
 
 from .client import FetchError, NitterClient
 from .instances import USER_AGENT, InstancePool
-from .media import MediaDownloader
+from .media import DEFAULT_DIR, MediaDownloader
 
 # Built once per server process and reused across tool calls; the probe only
 # happens on the first tool call so importing the module does no network I/O.
@@ -186,7 +186,9 @@ def x_download_media(
         return _error(str(exc))
 
     tweets = ([page.main] if page.main else []) + page.before + page.after + page.replies
-    target = Path(directory) if directory else Path("x-media")
+    # Absolute, so the paths returned to the agent do not depend on the
+    # server process's working directory.
+    target = (Path(directory).expanduser() if directory else DEFAULT_DIR).resolve()
     downloader = MediaDownloader(get_client().pool.client, instance_url=served.url)
 
     saved: list[str] = []

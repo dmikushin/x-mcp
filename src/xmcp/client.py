@@ -5,23 +5,19 @@ from __future__ import annotations
 import logging
 import re
 from dataclasses import dataclass
-from urllib.parse import urlparse
+from urllib.parse import urlencode, urlparse
 
 import httpx
 
 from .challenge import UnsupportedChallenge, is_anubis_page, solve_and_pass
 from .instances import InstanceStatus, ProbedInstance
-from .parse import is_empty_timeline, parse_timeline
+from .parse import is_empty_timeline, page_title, parse_timeline
 
 logger = logging.getLogger("xmcp")
 
-# HTML that indicates the mirror is not serving us real content.
-_BLOCK_MARKERS = (
-    "gandalf",
-    "just a moment",
-    "challenges.cloudflare.com",
-    "making sure you're not a bot",
-)
+# Page titles of interstitials that mean the mirror is not serving content.
+# Only the <title> is inspected: tweet text may legitimately contain these words.
+_BLOCK_TITLES = ("gandalf", "just a moment", "making sure you")
 
 
 @dataclass
@@ -104,10 +100,12 @@ class NitterClient:
         return pool
 
     def _looks_blocked(self, html: str) -> str | None:
-        lowered = html.lower()
-        for marker in _BLOCK_MARKERS:
-            if marker in lowered:
+        title = page_title(html).lower()
+        for marker in _BLOCK_TITLES:
+            if title.startswith(marker):
                 return marker
+        if "challenges.cloudflare.com" in html:
+            return "cloudflare"
         return None
 
     def fetch(
@@ -160,7 +158,7 @@ class NitterClient:
 
             # A mirror with search turned off is not broken: report it as a
             # failure for this request without demoting it for others.
-            if search and "Search disabled" in html:
+            if search and page_title(html).startswith("Search disabled"):
                 failures.append(AttemptFailure(inst.host, "search disabled on this mirror"))
                 continue
 
@@ -179,7 +177,7 @@ class NitterClient:
             if (
                 "timeline-item" not in html
                 and "profile-card" not in html
-                and ".main-tweet" not in html
+                and "main-tweet" not in html
             ):
                 failures.append(AttemptFailure(inst.host, "page had no Nitter content"))
                 self.pool.demote(inst.host, "no content")
@@ -205,9 +203,8 @@ class NitterClient:
         from .parse import parse_profile
 
         suffix = {"tweets": "", "replies": "/replies", "media": "/media"}[kind]
-        path = f"/{username}{suffix}"
-        if cursor:
-            path += f"?cursor={cursor}"
+        base = f"/{username}{suffix}"
+        path = f"{base}?{urlencode({'cursor': cursor})}" if cursor else base
 
         result = self.fetch(path, instance=instance)
         profile = parse_profile(result.html, result.instance.url)
@@ -215,7 +212,7 @@ class NitterClient:
         next_cursor = profile.timeline.next_cursor
 
         while pages > 1 and next_cursor and (limit is None or len(tweets) < limit):
-            result = self.fetch(f"/{username}{suffix}?cursor={next_cursor}", instance=instance)
+            result = self.fetch(f"{base}?{urlencode({'cursor': next_cursor})}", instance=instance)
             timeline = parse_timeline(result.html, result.instance.url)
             if not timeline.tweets:
                 break
@@ -255,11 +252,14 @@ class NitterClient:
         from .parse import parse_timeline, parse_user_search
 
         f = "users" if kind == "users" else "tweets"
-        path = f"/search?f={f}&q={query}"
-        if cursor:
-            path += f"&cursor={cursor}"
 
-        result = self.fetch(path, search=True, instance=instance)
+        def search_path(page_cursor: str | None) -> str:
+            params = {"f": f, "q": query}
+            if page_cursor:
+                params["cursor"] = page_cursor
+            return "/search?" + urlencode(params)
+
+        result = self.fetch(search_path(cursor), search=True, instance=instance)
         if kind == "users":
             results, next_cursor = parse_user_search(result.html, result.instance.url)
         else:
@@ -267,11 +267,7 @@ class NitterClient:
             results, next_cursor = timeline.tweets, timeline.next_cursor
 
         while pages > 1 and next_cursor and (limit is None or len(results) < limit):
-            result = self.fetch(
-                f"/search?f={f}&q={query}&cursor={next_cursor}",
-                search=True,
-                instance=instance,
-            )
+            result = self.fetch(search_path(next_cursor), search=True, instance=instance)
             if kind == "users":
                 more, next_cursor = parse_user_search(result.html, result.instance.url)
             else:

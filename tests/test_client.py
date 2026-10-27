@@ -270,3 +270,57 @@ def test_tweet_path_normalization():
         pass
     else:
         raise AssertionError("invalid input should raise ValueError")
+
+
+def _recording_client(body: str) -> tuple[NitterClient, list[httpx.URL]]:
+    seen: list[httpx.URL] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request.url)
+        return httpx.Response(200, text=body)
+
+    pool = InstancePool(
+        httpx.Client(transport=httpx.MockTransport(handler)),
+        cache_path=Path("/tmp/x-mcp-test-cache.json"),
+    )
+    pool.instances = [
+        ProbedInstance(
+            host="good.example.com",
+            url="https://good.example.com",
+            status=InstanceStatus.OK,
+            latency_ms=1,
+            search_enabled=True,
+            points=1,
+            healthy=True,
+            nitter_version="",
+            source="tracker",
+        )
+    ]
+    return NitterClient(pool), seen
+
+
+def test_search_query_and_cursor_are_url_encoded():
+    client, seen = _recording_client(PROFILE_PAGE)
+    client.search("#archlinux C++ & rust", cursor="a+b/c=")
+    assert seen[0].params["q"] == "#archlinux C++ & rust"
+    assert seen[0].params["cursor"] == "a+b/c="
+    assert seen[0].params["f"] == "tweets"
+
+
+def test_timeline_cursor_round_trips_through_encoding():
+    client, seen = _recording_client(PROFILE_PAGE)
+    _, _, next_cursor, _ = client.user_timeline("elonmusk", pages=2)
+    assert next_cursor is not None or len(seen) == 2
+    assert seen[1].params["cursor"]
+    first_cursor = BeautifulSoup(PROFILE_PAGE, "lxml").select_one(".show-more a")["href"]
+    assert seen[1].params["cursor"] == httpx.URL("https://x/" + first_cursor).params["cursor"]
+
+
+def test_challenge_words_in_tweet_text_do_not_block():
+    page = PROFILE_PAGE.replace(
+        "That was dumb.", "Just a moment, Gandalf: making sure you're not a bot"
+    )
+    client, _ = _recording_client(page)
+    _, tweets, _, served = client.user_timeline("elonmusk")
+    assert served.host == "good.example.com"
+    assert "Gandalf" in tweets[0].text

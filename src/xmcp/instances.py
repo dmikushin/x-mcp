@@ -18,6 +18,7 @@ from pathlib import Path
 import httpx
 
 from .challenge import UnsupportedChallenge, is_anubis_page, solve_and_pass
+from .parse import page_title
 from .tracker import TrackerEntry
 
 USER_AGENT = (
@@ -151,13 +152,6 @@ class InstancePool:
         except httpx.TimeoutException:
             inst.status = InstanceStatus.TIMEOUT
             inst.failure_reason = "request timed out"
-        except httpx.HTTPStatusError as exc:
-            inst.status = (
-                InstanceStatus.FORBIDDEN
-                if exc.response.status_code == 403
-                else InstanceStatus.ERROR
-            )
-            inst.failure_reason = f"HTTP {exc.response.status_code}"
         except httpx.HTTPError as exc:
             inst.status = InstanceStatus.ERROR
             inst.failure_reason = str(exc)
@@ -176,14 +170,10 @@ class InstancePool:
         if resp.status_code >= 500:
             return InstanceStatus.ERROR
         text = resp.text
-        lowered = text.lower()
-        if "<title>gandalf" in lowered:
+        title = page_title(text).lower()
+        if title.startswith("gandalf"):
             return InstanceStatus.GANDALF
-        if (
-            "just a moment" in lowered
-            or "cf-challenge" in lowered
-            or "challenges.cloudflare.com" in lowered
-        ):
+        if title.startswith("just a moment") or "challenges.cloudflare.com" in text:
             return InstanceStatus.CLOUDFLARE
         if is_anubis_page(text):
             try:
@@ -206,10 +196,9 @@ class InstancePool:
             resp = self.client.get(base_url + SEARCH_PROBE_PATH)
         except httpx.HTTPError:
             return False
-        text = resp.text
-        if "Search disabled" in text or "search disabled" in text.lower():
+        if page_title(resp.text).startswith("Search disabled"):
             return False
-        return "timeline-item" in text
+        return "timeline-item" in resp.text
 
     # --------------------------------------------------------------- public
     def refresh(self) -> list[ProbedInstance]:

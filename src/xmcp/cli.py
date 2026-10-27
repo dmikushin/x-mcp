@@ -15,7 +15,7 @@ import httpx
 
 from .client import FetchError, NitterClient
 from .instances import USER_AGENT, InstancePool
-from .media import MediaDownloader
+from .media import DEFAULT_DIR, MediaDownloader
 from .parse import Tweet
 
 
@@ -450,7 +450,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_user.add_argument(
         "--download-media", action="store_true", help="save media of the shown tweets"
     )
-    p_user.add_argument("-o", "--output", default="x-media", help="directory for downloaded media")
+    p_user.add_argument(
+        "-o", "--output", default=str(DEFAULT_DIR), help="directory for downloaded media"
+    )
     p_user.set_defaults(handler=cmd_user)
 
     p_tweet = sub.add_parser(
@@ -459,7 +461,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_tweet.add_argument("id", help="tweet id, x.com/twitter.com/nitter URL")
     p_tweet.add_argument("--no-replies", action="store_true", help="omit the replies section")
     p_tweet.add_argument("--download-media", action="store_true", help="save media of the tweet")
-    p_tweet.add_argument("-o", "--output", default="x-media", help="directory for downloaded media")
+    p_tweet.add_argument(
+        "-o", "--output", default=str(DEFAULT_DIR), help="directory for downloaded media"
+    )
     p_tweet.set_defaults(handler=cmd_tweet)
 
     p_search = sub.add_parser("search", parents=[parent], help="search tweets or users")
@@ -470,13 +474,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_search.add_argument("--limit", type=int)
     p_search.add_argument("--download-media", action="store_true", help="save media of the results")
     p_search.add_argument(
-        "-o", "--output", default="x-media", help="directory for downloaded media"
+        "-o", "--output", default=str(DEFAULT_DIR), help="directory for downloaded media"
     )
     p_search.set_defaults(handler=cmd_search)
 
     p_media = sub.add_parser("media", parents=[parent], help="download media of one tweet")
     p_media.add_argument("id", help="tweet id or URL")
-    p_media.add_argument("-o", "--output", default="x-media", help="directory for downloaded media")
+    p_media.add_argument(
+        "-o", "--output", default=str(DEFAULT_DIR), help="directory for downloaded media"
+    )
     p_media.set_defaults(handler=cmd_media)
 
     return parser
