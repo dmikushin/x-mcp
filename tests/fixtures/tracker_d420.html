@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="nitter, status, uptime" />
+  <meta name="description" content="Nitter instance uptime and status tracker." />
+  <meta name="author" content="" />
+  <link href="/static/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/nitter-theme.css" rel="stylesheet">
+  <style>
+    .uptime-graph rect {
+      cursor: pointer;
+    }
+
+    .uptime-graph rect:hover {
+      fill: #5e6c84;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nitter Instance Health</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Nitter Instance Uptime & Health</h1>
+    
+      
+    
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+      <div>
+        <a href="/about" class="link-accent me-3">About</a>
+        <a rel="nofollow" href="/apply" class="btn btn-sm btn-outline-accent">Apply to list your instance</a>
+      </div>
+      <div class="text-secondary small text-end">
+        Last updated 2026.10.27 20:56 <a rel="nofollow" href="https://time.is/UTC">UTC</a><br>
+        <a href="#column-settings">Customize visible columns</a>
+      </div>
+    </div>
+    <p>Please <b>do NOT use these instances for
+        scraping</b>, host nitter yourself.</p>
+    <div class="table-responsive">
+      <table id="status-tbl" class="table sortable table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Instance</th>
+            <th data-name="country" scope="col">Country</th>
+            <th scope="col">Healthy</th>
+            <th scope="col">Health History</th>
+            <th data-name="average" scope="col">Average Time</th>
+            <th scope="col">All Time %</th>
+            <th data-name="rss" scope="col">RSS</th>
+            <th data-name="version" scope="col">Nitter Version</th>
+            <th data-name="connectivity" scope="col">Connectivity</th>
+            <th scope="col">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.netbub.com">nitter.netbub.com</a></td>
+            <td data-name="country">🇺🇸</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">876ms</td>
+            <td>96%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.20-ddfd80f"><a rel="nofollow external" title="2026.10.20-ddfd80f" href="https:&#x2F;&#x2F;codeberg.org&#x2F;shitter&#x2F;shitter&#x2F;commit&#x2F;ddfd80f">
+                2026.10.20-ddfd80f
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">All</td>
+            <td>78</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;shitter.thepixora.com">shitter.thepixora.com</a></td>
+            <td data-name="country">🇨🇦</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">791ms</td>
+            <td>92%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.20-ddfd80f"><a rel="nofollow external" title="2026.10.20-ddfd80f" href="https:&#x2F;&#x2F;codeberg.org&#x2F;shitter&#x2F;shitter&#x2F;commit&#x2F;ddfd80f">
+                2026.10.20-ddfd80f
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">All</td>
+            <td>76</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.tiekoetter.com">nitter.tiekoetter.com</a></td>
+            <td data-name="country">🇩🇪</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">41ms</td>
+            <td>50%</td>
+            <td data-name="rss"><span
+                role="img" aria-label="has rss">❌</span></td>
+            <td data-name="version" data-sort="A2026.10.10-145ca9e"><a rel="nofollow external" title="2026.10.10-145ca9e" href="https:&#x2F;&#x2F;github.com&#x2F;zedeus&#x2F;nitter&#x2F;commit&#x2F;145ca9eb68d195a74598ae39a4d6da002b252c38">
+                2026.10.10-145ca9e
+              </a><span class="ms-1 badge bg-success">latest</span></td>
+            <td data-name="connectivity">All</td>
+            <td>75</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.jaydenha.uk">nitter.jaydenha.uk</a></td>
+            <td data-name="country">🇸🇬</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">351ms</td>
+            <td>90%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.19-7f85aa3"><a rel="nofollow external" title="2026.10.19-7f85aa3" href="https:&#x2F;&#x2F;github.com&#x2F;zedeus&#x2F;nitter&#x2F;commit&#x2F;7f85aa3">
+                2026.10.19-7f85aa3
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">IPv4</td>
+            <td>74</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.mizuki.st">nitter.mizuki.st</a></td>
+            <td data-name="country">🇲🇩</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">577ms</td>
+            <td>97%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.20-ddfd80f"><a rel="nofollow external" title="2026.10.20-ddfd80f" href="https:&#x2F;&#x2F;codeberg.org&#x2F;shitter&#x2F;shitter&#x2F;commit&#x2F;ddfd80f">
+                2026.10.20-ddfd80f
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">All</td>
+            <td>59</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.pp.ua">nitter.pp.ua</a></td>
+            <td data-name="country">🇨🇦</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">804ms</td>
+            <td>95%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.20-ddfd80f"><a rel="nofollow external" title="2026.10.20-ddfd80f" href="https:&#x2F;&#x2F;codeberg.org&#x2F;shitter&#x2F;shitter&#x2F;commit&#x2F;ddfd80f">
+                2026.10.20-ddfd80f
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">All</td>
+            <td>59</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.kareem.one">nitter.kareem.one</a></td>
+            <td data-name="country">🇮🇩</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">1082ms</td>
+            <td>91%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="D2026.10.01-367475c6"><a rel="nofollow external" title="2026.10.01-367475c6" href="https:&#x2F;&#x2F;git.kareem.one&#x2F;shaquille&#x2F;nitter&#x2F;src&#x2F;commit&#x2F;367475c6b76dd33e45fd9d48de59c7d82af48000&#x2F;patches">
+                2026.10.01-367475c…
+              </a><span class="ms-1 badge bg-secondary">fork</span></td>
+            <td data-name="connectivity">All</td>
+            <td>55</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.mie.foundation">nitter.mie.foundation</a></td>
+            <td data-name="country">🇷🇺</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">1225ms</td>
+            <td>98%</td>
+            <td data-name="rss"><span role="img" aria-label="no rss">✅</span></td>
+            <td data-name="version" data-sort="E"><a rel="nofollow external" href="https://nitter.mie.foundation/about">missing version</a><span class="ms-1 badge bg-warning">missing</span></td>
+            <td data-name="connectivity">All</td>
+            <td>49</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.click">nitter.click</a></td>
+            <td data-name="country">🇺🇸</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">540ms</td>
+            <td>73%</td>
+            <td data-name="rss"><span
+                role="img" aria-label="has rss">❌</span></td>
+            <td data-name="version" data-sort="B2026.08.26-e4aefbc"><a rel="nofollow external" title="2026.08.26-e4aefbc" href="https:&#x2F;&#x2F;github.com&#x2F;zedeus&#x2F;nitter&#x2F;commit&#x2F;e4aefbc">
+                2026.08.26-e4aefbc
+              </a><span class="ms-1 badge bg-info">outdated</span></td>
+            <td data-name="connectivity">All</td>
+            <td>42</td>
+          </tr><tr>
+            <td><a rel="nofollow external" href="https:&#x2F;&#x2F;nitter.xitter.cc">nitter.xitter.cc</a></td>
+            <td data-name="country">🇳🇱🇺🇸🇯🇵</td>
+            <td><span role="img" aria-label="healthy">✅</span></td>
+            <td><svg class="uptime-graph" viewBox="0 0 110 28" height="28"><rect x="0" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:37</title>
+                </rect><rect x="5" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 15:52</title>
+                </rect><rect x="10" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:07</title>
+                </rect><rect x="15" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:23</title>
+                </rect><rect x="20" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:38</title>
+                </rect><rect x="25" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 16:53</title>
+                </rect><rect x="30" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:08</title>
+                </rect><rect x="35" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:23</title>
+                </rect><rect x="40" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 17:38</title>
+                </rect><rect x="45" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 17:54</title>
+                </rect><rect x="50" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 18:09</title>
+                </rect><rect x="55" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 18:24</title>
+                </rect><rect x="60" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 18:39</title>
+                </rect><rect x="65" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 18:54</title>
+                </rect><rect x="70" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 19:09</title>
+                </rect><rect x="75" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 19:25</title>
+                </rect><rect x="80" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 19:40</title>
+                </rect><rect x="85" y="0" width="4" height="28"
+                  fill="#ff6225" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Unhealthy 2026.10.27 19:55</title>
+                </rect><rect x="90" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:10</title>
+                </rect><rect x="95" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:26</title>
+                </rect><rect x="100" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:41</title>
+                </rect><rect x="105" y="0" width="4" height="28"
+                  fill="#2fcc66" fill-opacity="0.95" shape-rendering="auto">
+                  <title>Healthy 2026.10.27 20:56</title>
+                </rect></svg></td><td data-name="average">1495ms</td>
+            <td>51%</td>
+            <td data-name="rss"><span
+                role="img" aria-label="has rss">❌</span></td>
+            <td data-name="version" data-sort="B2026.08.24-8142bab"><a rel="nofollow external" title="2026.08.24-8142bab" href="https:&#x2F;&#x2F;github.com&#x2F;zedeus&#x2F;nitter&#x2F;commit&#x2F;8142bab">
+                2026.08.24-8142bab
+              </a><span class="ms-1 badge bg-info">outdated</span></td>
+            <td data-name="connectivity">All</td>
+            <td>19</td>
+          </tr></tbody>
+      </table>
+    </div>
+    <noscript>Toggling table columns and sorting requires JS.</noscript>
+    <div id="column-settings" class="form mt-2">
+      Visible Columns:
+      <div class="form-check">
+        <input class="form-check-input toggle-column" data-name="connectivity" type="checkbox" id="checkConnectivity">
+        <label class="form-check-label" for="checkConnectivity">
+          Connectivity Column
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input toggle-column" data-name="country" type="checkbox" id="checkCountry" checked>
+        <label class="form-check-label" for="checkCountry">
+          Country Column
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input toggle-column" data-name="rss" type="checkbox" id="checkRSS">
+        <label class="form-check-label" for="checkRSS">
+          RSS Column
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input toggle-column" data-name="version" type="checkbox" id="checkVersion" checked>
+        <label class="form-check-label" for="checkVersion">
+          Version Column
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input toggle-column" data-name="average" type="checkbox" id="checkAverage">
+        <label class="form-check-label" for="checkAverage">
+          Average ms Column
+        </label>
+      </div>
+    </div>
+  </div>
+  <script src="/static/bootstrap.min.js"></script>
+  <link href="/static/sorting.css" rel="stylesheet" />
+  <script src="/static/sortable.min.js"></script>
+  <script src="/static/table_toggle.js"></script>
+</body>
+
+</html>
